@@ -1,0 +1,35 @@
+{
+  "name": "@atomico/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/wrapper.js",
+  "exports": {
+    ".": "./src/wrapper.js"
+  },
+  "types": "./src/wrapper.d.ts",
+  "scripts": {
+    "start": "vite",
+    "types": "tsc",
+    "test": "wtr test/**/*.test.jsx",
+    "test:w": "wtr test/**/*.test.jsx --watch"
+  },
+  "keywords": [],
+  "author": "UpperCod",
+  "license": "ISC",
+  "devDependencies": {
+    "atomico": "latest",
+    "@esm-bundle/chai": "^4.3.4",
+    "@web/dev-server-esbuild": "^0.2.12",
+    "@web/test-runner": "^0.13.5",
+    "husky": "^6.0.0",
+    "react": "npm:@esm-bundle/react",
+    "react-dom": "npm:@esm-bundle/react-dom",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.4"
+  },
+  "peerDependencies": {
+    "atomico": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}
