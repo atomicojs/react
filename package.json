@@ -6,12 +6,13 @@
   "exports": {
     ".": "./src/wrapper.js"
   },
-  "types": "./src/wrapper.d.ts",
+  "types": "./wrapper.d.ts",
   "scripts": {
     "start": "vite",
     "types": "tsc",
     "test": "wtr test/**/*.test.jsx",
-    "test:w": "wtr test/**/*.test.jsx --watch"
+    "test:w": "wtr test/**/*.test.jsx --watch",
+    "prepublishOnly": "npm run test && npm run types"
   },
   "keywords": [],
   "author": "UpperCod",
