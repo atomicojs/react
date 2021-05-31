@@ -7,6 +7,9 @@
     ".": "./src/wrapper.js"
   },
   "types": "./wrapper.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "vite",
     "types": "tsc",
@@ -14,7 +17,6 @@
     "test:w": "wtr test/**/*.test.jsx --watch",
     "prepublishOnly": "npm run test && npm run types"
   },
-  "keywords": [],
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
@@ -32,5 +34,20 @@
     "atomico": "latest",
     "react": "latest",
     "react-dom": "latest"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/atomicojs/react/issues"
+  },
+  "homepage": "https://github.com/atomicojs/react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/atomicojs/react.git"
+  },
+  "keywords": [
+    "jsx",
+    "web-components",
+    "custom-elements",
+    "webcomponent",
+    "react"
+  ]
 }
