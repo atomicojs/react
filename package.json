@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "./src/wrapper.js",
   "exports": {
@@ -34,6 +34,14 @@
     "atomico": "latest",
     "react": "latest",
     "react-dom": "latest"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   },
   "bugs": {
     "url": "https://github.com/atomicojs/react/issues"
