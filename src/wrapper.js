@@ -46,11 +46,15 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
   });
 
 /**
+ * @typedef {Object<string,any>} Fill
+ */
+
+/**
  * @typedef {Object} Atomico
- * @property {Object<string,any>} Props
+ * @property {Fill} Props
  */
 
 /**
  * @template P, C
- * @typedef {(props:P & import("react").DOMAttributes<C>)=>any} Component
+ * @typedef {(props:P & import("react").DOMAttributes<C> & Fill)=>any} Component
  */
