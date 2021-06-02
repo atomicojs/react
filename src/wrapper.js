@@ -38,7 +38,7 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
           return () => current.removeEventListener(name, value);
         });
       return () => unlisteners.forEach((unlistener) => unlistener());
-    }, handlers.flat());
+    });
 
     if (is) nextProps.is = tagName;
 
