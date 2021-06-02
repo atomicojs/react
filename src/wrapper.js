@@ -7,9 +7,10 @@ import { createElement, useLayoutEffect, forwardRef, useRef } from "react";
  * @param {string} tagName - Create a webcomponent container to be used within React,
  *                           solving the association of native events
  * @param {T} [base] - Component instantiated of `c` will allow to infer the for typescript
- * @returns {T extends Atomico ? Component<Partial<T["Props"]>> : Component<any> }
+ * @param {ElementDefinitionOptions} [options]
+ * @returns {T extends Atomico ? Component<Partial<T["Props"]>,T> : Component<{}, T> }
  */
-export const wrapper = (tagName, base) =>
+export const wrapper = (tagName, base, { extends: is } = {}) =>
   forwardRef(({ children, ...props }, ref) => {
     let localRef = useRef();
     ref = ref || localRef;
@@ -39,7 +40,9 @@ export const wrapper = (tagName, base) =>
       return () => unlisteners.forEach((unlistener) => unlistener());
     }, handlers.flat());
 
-    return createElement(tagName, nextProps, children);
+    if (is) nextProps.is = tagName;
+
+    return createElement(is || tagName, nextProps, children);
   });
 
 /**
@@ -48,6 +51,6 @@ export const wrapper = (tagName, base) =>
  */
 
 /**
- * @template P
- * @typedef {(props:P)=>any} Component
+ * @template P, C
+ * @typedef {(props:P & import("react").DOMAttributes<C>)=>any} Component
  */

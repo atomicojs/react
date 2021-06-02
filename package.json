@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "./src/wrapper.js",
   "exports": {
@@ -20,10 +20,11 @@
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "atomico": "latest",
+    "@types/react": "latest",
     "@esm-bundle/chai": "^4.3.4",
     "@web/dev-server-esbuild": "^0.2.12",
     "@web/test-runner": "^0.13.5",
+    "atomico": "latest",
     "husky": "^6.0.0",
     "react": "npm:@esm-bundle/react",
     "react-dom": "npm:@esm-bundle/react-dom",
@@ -33,13 +34,17 @@
   "peerDependencies": {
     "atomico": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@types/react": "latest"
   },
   "peerDependenciesMeta": {
     "react": {
       "optional": true
     },
     "react-dom": {
+      "optional": true
+    },
+    "@types/react": {
       "optional": true
     }
   },
