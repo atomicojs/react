@@ -8,7 +8,7 @@ import { createElement, useLayoutEffect, forwardRef, useRef } from "react";
  *                           solving the association of native events
  * @param {T} [base] - Component instantiated of `c` will allow to infer the for typescript
  * @param {ElementDefinitionOptions} [options]
- * @returns {T extends Atomico ? Component<T["Props"],T> : Component<{}, T> }
+ * @returns { Component<T> }
  */
 export const wrapper = (tagName, base, { extends: is } = {}) =>
   forwardRef(({ children, ...props }, ref) => {
@@ -55,6 +55,6 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
  */
 
 /**
- * @template P, C
- * @typedef {(props:Partial<P> & import("react").DOMAttributes<C> & Fill)=>any} Component
+ * @template C
+ * @typedef {C extends Atomico ? ( (props: Partial<C["Props"]> & import("react").DOMAttributes<C> & Fill)=>any ) : ( (props: import("react").DOMAttributes<C> & Fill)=>any )} Component
  */

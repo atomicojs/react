@@ -1,8 +1,17 @@
-export function wrapper<T>(tagName: string, base?: T, { extends: is }?: ElementDefinitionOptions): T extends Atomico ? Component<T["Props"], T> : Component<{}, T>;
+export function wrapper<T>(
+  tagName: string,
+  base?: T,
+  { extends: is }?: ElementDefinitionOptions
+): Component<T>;
+
 export type Fill = {
-    [x: string]: any;
+  [x: string]: any;
 };
 export type Atomico = {
-    Props: Fill;
+  Props: Fill;
 };
-export type Component<P, C> = (props: Partial<P> & import("react").DOMAttributes<C> & Fill) => any;
+export type Component<C> = C extends Atomico
+  ? (
+      props: Partial<C["Props"]> & import("react").DOMAttributes<C> & Fill
+    ) => any
+  : (props: import("react").DOMAttributes<C> & Fill) => any;
