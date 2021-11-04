@@ -1,10 +1,11 @@
 {
   "name": "@atomico/react",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "main": "./src/wrapper.js",
   "exports": {
-    ".": "./src/wrapper.js"
+    ".": "./src/wrapper.js",
+    "./auto": "./src/auto.js"
   },
   "types": "./wrapper.d.ts",
   "publishConfig": {
