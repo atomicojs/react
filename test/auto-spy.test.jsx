@@ -1,7 +1,7 @@
 import { expect } from "@esm-bundle/chai";
 import React from "react";
 import ReactDom from "react-dom";
-import { Component, Atomico } from "./demo/wrapper.jsx";
+import { Component, Atomico } from "./demo/auto-spy";
 
 describe("wrapper", () => {
   it("handlers", () =>
@@ -18,7 +18,7 @@ describe("wrapper", () => {
 
       current.count = 100;
 
-      expect(ref.current.localName).to.equal("my-component");
+      expect(ref.current.localName).to.equal("auto-spy");
 
       expect(ref.current).to.instanceOf(Atomico);
     }));

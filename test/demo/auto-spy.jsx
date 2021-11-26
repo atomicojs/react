@@ -1,3 +1,4 @@
+import { auto } from "../../src/auto.js";
 import { c, html, useProp } from "atomico";
 
 function atomico() {
@@ -18,3 +19,7 @@ atomico.props = {
 };
 
 export const Atomico = c(atomico);
+
+customElements.define("auto-spy", Atomico);
+
+export const Component = auto(Atomico);

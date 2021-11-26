@@ -1,16 +1,18 @@
 import { wrapper } from "./wrapper.js";
 
-const { define } = window.customElements;
-
 let id = 0;
+
+const { define } = customElements;
+
+const getId = () => `c-${Date.now()}-${id++}`;
 
 /**
  * @type {Map<Element,[string,ElementDefinitionOptions]>}
  */
 export const registered = new Map();
 
-window.customElements.define = function (tagName, Element, options) {
-  define.call(window.customElements, tagName, Element, options);
+customElements.define = function (tagName, Element, options) {
+  define.call(customElements, tagName, Element, options);
   registered.set(Element, [tagName, options]);
 };
 
@@ -20,8 +22,9 @@ window.customElements.define = function (tagName, Element, options) {
  * @returns {import("./wrapper").Component<T>}
  */
 export function auto(Element) {
-  const [tagName, options] = registered.get(Element) || [
-    `c-${Date.now()}-${id++}`,
-  ];
+  if (!registered.has(Element)) customElements.define(getId(), Element);
+
+  const [tagName, options] = registered.get(Element);
+
   return wrapper(tagName, Element, options);
 }
