@@ -16,3 +16,12 @@ export const MyComponent = wrapper(tagName, HTMLMyComponent);
 ```
 
 The second parameter for `wrapper` is optional, but will allow react to infer Atomico types, improving the Autocomplete and Typescript experience.
+
+## Example auto
+
+```js
+import { auto } from "@atomico/react/auto";
+import { Component as ElementComponent } from "./my-component";
+
+export const Component = auto(ElementComponent);
+```
