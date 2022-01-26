@@ -13,16 +13,15 @@
   },
   "scripts": {
     "start": "vite",
-    "types": "tsc",
     "test": "wtr test/**/*.test.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
-    "prepublishOnly": "npm run test && npm run types"
+    "prepublishOnly": "npm run test"
   },
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "@types/react": "latest",
     "@esm-bundle/chai": "^4.3.4",
+    "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
     "@web/test-runner": "^0.13.5",
     "atomico": "latest",
@@ -33,9 +32,9 @@
     "vite": "^2.3.4"
   },
   "peerDependencies": {
+    "@types/react": "latest",
     "atomico": "latest",
-    "react": "latest",
-    "@types/react": "latest"
+    "react": "latest"
   },
   "peerDependenciesMeta": {
     "react": {

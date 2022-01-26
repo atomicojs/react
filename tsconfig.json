@@ -4,6 +4,7 @@
     "allowJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
     "outDir": "",
     "lib": ["ESNext", "DOM","DOM.Iterable"]
   }

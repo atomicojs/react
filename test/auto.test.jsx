@@ -1,7 +1,8 @@
+//@ts-check
 import { expect } from "@esm-bundle/chai";
 import React from "react";
 import ReactDom from "react-dom";
-import { Component, Atomico } from "./demo/auto.jsx";
+import { ReactComponent, Atomico } from "./demo/auto";
 
 describe("wrapper", () => {
   it("handlers", () =>
@@ -10,13 +11,18 @@ describe("wrapper", () => {
       document.body.appendChild(div);
       const ref = React.createRef();
 
-      ReactDom.render(<Component onMyCustomEvent={done} ref={ref} />, div);
+      ReactDom.render(
+        <ReactComponent count={100} onMyCustomEvent={done} ref={ref} />,
+        div
+      );
 
       const { current } = ref;
 
       await current.updated;
 
-      current.count = 100;
+      expect(current.count).to.equal(100);
+
+      current.count = 1;
 
       expect(ref.current).to.instanceOf(Atomico);
     }));

@@ -1,7 +1,8 @@
+//@ts-check
 import { auto } from "../../src/auto.js";
-import { c, html, useProp } from "atomico";
+import { c, html, useProp, Meta, DOMEvent } from "atomico";
 
-function atomico() {
+function atomico(): Meta<DOMEvent<"MyCustomEvent">> {
   const [count, setCount] = useProp("count");
   return html`<host shadowDom>
     <button onclick=${() => setCount(count + 1)}>Increment: ${count}</button>
@@ -19,5 +20,7 @@ atomico.props = {
 };
 
 export const Atomico = c(atomico);
+
+customElements.define("auto-spy", Atomico);
 
 export const Component = auto(Atomico);

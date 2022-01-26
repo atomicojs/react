@@ -1,7 +1,7 @@
 import { expect } from "@esm-bundle/chai";
 import React from "react";
 import ReactDom from "react-dom";
-import { Component, Atomico } from "./demo/wrapper.jsx";
+import { Component, Atomico } from "./demo/wrapper";
 
 describe("wrapper", () => {
   it("handlers", () =>

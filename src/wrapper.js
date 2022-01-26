@@ -3,12 +3,12 @@ import { createElement, useLayoutEffect, forwardRef, useRef } from "react";
 /**
  * Create a wrapper component to improve the integration of React and Atomico webcomponents
  *
- * @template T
+ * @template {CustomElementConstructor} Base
  * @param {string} tagName - Create a webcomponent container to be used within React,
  *                           solving the association of native events
- * @param {T} [base] - Component instantiated of `c` will allow to infer the for typescript
+ * @param {Base} [base] - Component instantiated of `c` will allow to infer the for typescript
  * @param {ElementDefinitionOptions} [options]
- * @returns { Component<T> }
+ * @returns { import("../internal").Component<Base> }
  */
 export const wrapper = (tagName, base, { extends: is } = {}) =>
   forwardRef(({ children, ...props }, ref) => {
@@ -44,17 +44,3 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
 
     return createElement(is || tagName, nextProps, children);
   });
-
-/**
- * @typedef {Object<string,any>} Fill
- */
-
-/**
- * @typedef {Object} Atomico
- * @property {Fill} Props
- */
-
-/**
- * @template C
- * @typedef {C extends Atomico ? ( (props: Partial<C["Props"]> & import("react").DOMAttributes<C> & Fill)=>any ) : ( (props: import("react").DOMAttributes<C> & Fill)=>any )} Component
- */

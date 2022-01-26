@@ -17,9 +17,9 @@ customElements.define = function (tagName, Element, options) {
 };
 
 /**
- * @template {Element} T
- * @param {T} Element
- * @returns {import("./wrapper").Component<T>}
+ * @template {CustomElementConstructor} Base
+ * @param {Base} Element
+ * @returns {import("../internal").Component<Base>}
  */
 export function auto(Element) {
   if (!registered.has(Element)) customElements.define(getId(), Element);
