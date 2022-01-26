@@ -16,6 +16,7 @@ atomico.props = {
     },
     value: 0,
   },
+  reference: Element,
 };
 
 export const Atomico = c(atomico);

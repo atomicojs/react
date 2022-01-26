@@ -12,7 +12,12 @@ describe("wrapper", () => {
       const ref = React.createRef();
 
       ReactDom.render(
-        <ReactComponent count={100} onMyCustomEvent={done} ref={ref} />,
+        <ReactComponent
+          count={100}
+          onMyCustomEvent={done}
+          ref={ref}
+          reference={new Image()}
+        />,
         div
       );
 
@@ -23,6 +28,8 @@ describe("wrapper", () => {
       expect(current.count).to.equal(100);
 
       current.count = 1;
+
+      expect(current.reference).to.instanceOf(Image);
 
       expect(ref.current).to.instanceOf(Atomico);
     }));

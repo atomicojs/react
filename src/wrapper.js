@@ -14,19 +14,22 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
   forwardRef(({ children, ...props }, ref) => {
     let localRef = useRef();
     ref = ref || localRef;
-    const [handlers, nextProps] = Object.entries(props).reduce(
-      ([handlers, nextProps], [name, value]) => {
+
+    const [handlers, rawProps, nextProps] = Object.entries(props).reduce(
+      ([handlers, rawProps, nextProps], [name, value]) => {
         if (
           (name.startsWith("on") && value == null) ||
           typeof value == "function"
         ) {
           handlers.push([name.slice(2), value]);
+        } else if (name in base.prototype) {
+          rawProps.push([name, value]);
         } else {
           nextProps[name] = value;
         }
-        return [handlers, nextProps];
+        return [handlers, rawProps, nextProps];
       },
-      [[], { ref }]
+      [[], [], { ref }]
     );
 
     useLayoutEffect(() => {
@@ -37,6 +40,9 @@ export const wrapper = (tagName, base, { extends: is } = {}) =>
           current.addEventListener(name, value);
           return () => current.removeEventListener(name, value);
         });
+
+      rawProps.forEach(([name, value]) => (current[name] = value));
+
       return () => unlisteners.forEach((unlistener) => unlistener());
     });
 
