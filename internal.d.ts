@@ -1,13 +1,7 @@
-export type GetProps<Base extends CustomElementConstructor> = Base extends {
-  Props: infer Props;
-}
-  ? Props
-  : Base extends { new (props: infer Props): any; "##props": any }
-  ? Props
-  : InstanceType<Base>;
+import { JSXElement } from "atomico";
 
 export type Component<Base extends CustomElementConstructor> = (
-  props: GetProps<Base> &
+  props: JSXElement<Base> &
     import("react").DOMAttributes<Base> & {
       [index: string]: any;
     }
