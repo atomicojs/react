@@ -2,11 +2,6 @@
   "name": "@atomico/react",
   "version": "2.0.0",
   "description": "",
-  "main": "./src/wrapper.js",
-  "exports": {
-    ".": "./src/wrapper.js",
-    "./auto": "./src/auto.js"
-  },
   "types": "./wrapper.d.ts",
   "publishConfig": {
     "access": "public"
@@ -15,11 +10,13 @@
     "start": "vite",
     "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
+    "exports": "exports src/(preact|react|proxy).tsx",
     "prepublishOnly": "npm run test"
   },
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
+    "@atomico/exports": "^0.25.0",
     "@esm-bundle/chai": "^4.3.4",
     "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
@@ -35,10 +32,14 @@
   "peerDependencies": {
     "@types/react": "latest",
     "atomico": "^1.49.2",
-    "react": "latest"
+    "react": "latest",
+    "preact": "latest"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "preact": {
       "optional": true
     },
     "@types/react": {
