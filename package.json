@@ -10,7 +10,7 @@
     "start": "vite",
     "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
-    "exports": "exports ",
+    "exports": "exports src/*.ts",
     "prepublishOnly": "npm run test"
   },
   "author": "UpperCod",
