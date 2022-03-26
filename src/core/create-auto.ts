@@ -1,4 +1,4 @@
-import { registered } from "./proxy";
+import { registered } from "../proxy";
 import { Wrapper } from "./create-wrapper";
 
 let id = 0;
