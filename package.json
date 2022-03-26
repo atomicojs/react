@@ -10,7 +10,7 @@
     "start": "vite",
     "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
-    "exports": "exports src/(preact|react|proxy).tsx",
+    "exports": "exports ",
     "prepublishOnly": "npm run test"
   },
   "author": "UpperCod",
