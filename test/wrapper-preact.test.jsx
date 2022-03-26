@@ -1,7 +1,6 @@
 import { expect } from "@esm-bundle/chai";
-import React from "react";
-import ReactDom from "react-dom";
-import { ReactComponent, Atomico } from "./demo/wrapper";
+import { render, h, createRef } from "preact";
+import { PreactComponent, Atomico } from "./demo/wrapper";
 
 describe("wrapper", () => {
   it("handlers", () =>
@@ -9,9 +8,15 @@ describe("wrapper", () => {
       const div = document.createElement("div");
       document.body.appendChild(div);
 
-      const ref = React.createRef();
+      const ref = createRef();
 
-      ReactDom.render(<ReactComponent onMyCustomEvent={done} ref={ref} />, div);
+      render(
+        h(PreactComponent, {
+          onMyCustomEvent: done,
+          ref,
+        }),
+        div
+      );
 
       const { current } = ref;
 

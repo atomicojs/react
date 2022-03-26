@@ -1,23 +1,22 @@
 //@ts-check
 import { expect } from "@esm-bundle/chai";
-import React from "react";
-import ReactDom from "react-dom";
-import { ReactComponent, Atomico } from "./demo/auto";
+import { render, h, createRef } from "preact";
+import { PreactComponent, Atomico } from "./demo/auto";
 
 describe("wrapper", () => {
   it("handlers", () =>
     new Promise(async (done) => {
       const div = document.createElement("div");
       document.body.appendChild(div);
-      const ref = React.createRef();
 
-      ReactDom.render(
-        <ReactComponent
-          count={100}
-          onMyCustomEvent={done}
-          ref={ref}
-          reference={new Image()}
-        />,
+      const ref = createRef();
+
+      render(
+        h(PreactComponent, {
+          count: 100,
+          onMyCustomEvent: done,
+          ref,
+        }),
         div
       );
 

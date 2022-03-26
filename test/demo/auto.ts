@@ -1,7 +1,9 @@
-import { auto } from "../../src/auto.js";
-import { c, html, useProp, Meta, DOMEvent } from "atomico";
+import "../../src/proxy.js";
+import { auto } from "../../src/react";
+import { auto as autoPreact } from "../../src/preact";
+import { Host, c, html, useProp } from "atomico";
 
-function atomico(): Meta<DOMEvent<"MyCustomEvent">> {
+function atomico(): Host<{ onMyCustomEvent: Event }> {
   const [count, setCount] = useProp("count");
   return html`<host shadowDom>
     <button onclick=${() => setCount(count + 1)}>Increment: ${count}</button>
@@ -16,9 +18,10 @@ atomico.props = {
     },
     value: 0,
   },
-  reference: Element,
 };
 
 export const Atomico = c(atomico);
 
 export const ReactComponent = auto(Atomico);
+
+export const PreactComponent = autoPreact(Atomico);

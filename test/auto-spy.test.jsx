@@ -1,7 +1,7 @@
 import { expect } from "@esm-bundle/chai";
 import React from "react";
 import ReactDom from "react-dom";
-import { Component, Atomico } from "./demo/auto-spy";
+import { ReactComponent, Atomico } from "./demo/auto-spy";
 
 describe("wrapper", () => {
   it("handlers", () =>
@@ -10,7 +10,7 @@ describe("wrapper", () => {
       document.body.appendChild(div);
       const ref = React.createRef();
 
-      ReactDom.render(<Component onMyCustomEvent={done} ref={ref} />, div);
+      ReactDom.render(<ReactComponent onMyCustomEvent={done} ref={ref} />, div);
 
       const { current } = ref;
 
@@ -18,8 +18,8 @@ describe("wrapper", () => {
 
       current.count = 100;
 
-      expect(ref.current.localName).to.equal("auto-spy");
+      expect(current.localName).to.equal("auto-spy");
 
-      expect(ref.current).to.instanceOf(Atomico);
+      expect(current).to.instanceOf(Atomico);
     }));
 });

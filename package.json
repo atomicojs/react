@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "",
   "main": "./src/wrapper.js",
   "exports": {
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "vite",
-    "test": "wtr test/**/*.test.jsx",
+    "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
     "prepublishOnly": "npm run test"
   },
@@ -24,8 +24,9 @@
     "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
     "@web/test-runner": "^0.13.5",
-    "atomico": "latest",
+    "atomico": "^1.51.0",
     "husky": "^6.0.0",
+    "preact": "^10.6.6",
     "react": "npm:@esm-bundle/react",
     "react-dom": "npm:@esm-bundle/react-dom",
     "typescript": "^4.3.2",
@@ -33,7 +34,7 @@
   },
   "peerDependencies": {
     "@types/react": "latest",
-    "atomico": "latest",
+    "atomico": "^1.49.2",
     "react": "latest"
   },
   "peerDependenciesMeta": {
