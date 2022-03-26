@@ -11,7 +11,7 @@
     "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
     "exports": "exports src/*.ts --exports --types --main react",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test && npm run exports"
   },
   "author": "UpperCod",
   "license": "ISC",
