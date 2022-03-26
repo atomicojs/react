@@ -16,7 +16,7 @@
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "@atomico/exports": "^0.25.0",
+    "@atomico/exports": "^0.25.1",
     "@esm-bundle/chai": "^4.3.4",
     "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
@@ -32,8 +32,8 @@
   "peerDependencies": {
     "@types/react": "latest",
     "atomico": "^1.49.2",
-    "react": "latest",
-    "preact": "latest"
+    "preact": "latest",
+    "react": "latest"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -59,6 +59,7 @@
     "web-components",
     "custom-elements",
     "webcomponent",
-    "react"
+    "react",
+    "preact"
   ]
 }
