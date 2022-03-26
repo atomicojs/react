@@ -16,7 +16,7 @@
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "@atomico/exports": "^0.25.1",
+    "@atomico/exports": "^0.26.2",
     "@esm-bundle/chai": "^4.3.4",
     "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
