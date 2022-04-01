@@ -1,4 +1,5 @@
 import { JSXElement } from "atomico";
+import { DOMAttributes } from "react";
 
 interface Props {
   [prop: string]: any;
@@ -7,7 +8,7 @@ interface Props {
 type Entries = [string, any][];
 
 export interface Component<Base extends CustomElementConstructor> {
-  (props: Partial<JSXElement<Base>>): any;
+  (props: Partial<JSXElement<Base> & DOMAttributes<JSXElement<Base>>>): any;
 }
 
 export interface Wrapper {
@@ -39,7 +40,17 @@ export const createWrapper =
               (name.startsWith("on") && value == null) ||
               typeof value == "function"
             ) {
-              handlers.push([name.slice(2), value]);
+              let timeStamp: number;
+              const handler = (event: Event) => {
+                if (timeStamp != event.timeStamp) {
+                  timeStamp = event.timeStamp;
+                  value(event);
+                }
+              };
+              handlers.push([name.slice(2), handler]);
+              if (/^on[A-Z]/.test(name)) {
+                nextProps[name] = handler;
+              }
             } else if (name in base.prototype) {
               rawProps.push([name, value]);
             } else {
