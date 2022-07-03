@@ -1,12 +1,23 @@
-import { createElement } from "preact";
+import { createElement, options } from "preact";
 import { useLayoutEffect, useRef } from "preact/hooks";
 import { createAuto } from "./core/create-auto";
 import { createWrapper } from "./core/create-wrapper";
 
+const { vnode } = options;
+
+options.vnode = (node) => {
+  if (typeof node.type === "function") {
+    //@ts-ignore
+    node.props.ref = node.ref;
+    node.ref = null;
+  }
+  if (vnode) vnode(node);
+};
+
 const forwardRef =
-  (component: (props: any, ref: any) => any) =>
+  (callback: (...args: any[]) => any) =>
   ({ ref, ...props }: any) =>
-    component(props, ref);
+    callback(props, ref);
 
 export const wrapper = createWrapper({
   createElement,
