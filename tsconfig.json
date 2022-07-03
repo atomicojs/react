@@ -1,6 +1,9 @@
 {
   "include": ["src/**/*","test/demo/**/*"],
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution":"node",
     "allowJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,

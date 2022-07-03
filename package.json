@@ -1,6 +1,7 @@
 {
   "name": "@atomico/react",
   "version": "2.3.0",
+  "type": "module",
   "description": "",
   "types": "./wrapper.d.ts",
   "publishConfig": {
