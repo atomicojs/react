@@ -1,4 +1,4 @@
-import { JSXElement } from "atomico";
+import { JSXElement, options, h } from "atomico";
 import { DOMAttributes } from "react";
 
 interface Props {
@@ -61,6 +61,8 @@ export const createWrapper =
           [[], [], { ref }]
         );
 
+        useLayoutEffect = options.ssr ? () => {} : useLayoutEffect;
+
         useLayoutEffect(() => {
           const { current } = ref;
           const unlisteners = handlers
@@ -77,6 +79,13 @@ export const createWrapper =
 
         if (is) nextProps.is = tagName;
 
+        if (options.ssr) {
+          nextProps.dangerouslySetInnerHTML = {
+            //@ts-ignore
+            __html: h(base).render().innerHTML,
+          };
+          nextProps["data-hydrate"] = "";
+        }
         return createElement(is || tagName, nextProps, children);
       }
     ) as Component<Base>;
