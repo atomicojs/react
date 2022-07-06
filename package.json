@@ -22,7 +22,7 @@
     "@types/react": "latest",
     "@web/dev-server-esbuild": "^0.2.12",
     "@web/test-runner": "^0.13.5",
-    "atomico": "^1.60.1",
+    "atomico": "^1.60.3",
     "husky": "^6.0.0",
     "preact": "^10.6.6",
     "react": "npm:@esm-bundle/react",
