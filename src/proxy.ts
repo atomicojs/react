@@ -1,3 +1,5 @@
+import "atomico/ssr/load";
+
 const { define } = customElements;
 
 export const registered = new Map<
