@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "type": "module",
   "description": "",
   "types": "./wrapper.d.ts",
@@ -11,7 +11,7 @@
     "start": "vite",
     "test": "wtr test/**/*.jsx",
     "test:w": "wtr test/**/*.test.jsx --watch",
-    "exports": "exports \"src/*.ts\" --exports --types --main react",
+    "exports": "exports \"src/*.ts\" --exports --types --main react --watch",
     "prepublishOnly": "npm run test && npm run exports"
   },
   "author": "UpperCod",
