@@ -80,11 +80,27 @@ export const createWrapper =
         if (is) nextProps.is = tagName;
 
         if (options.ssr) {
-          nextProps.dangerouslySetInnerHTML = {
-            //@ts-ignore
-            __html: h(base).render().innerHTML,
-          };
+          //@ts-ignore
+          const { innerHTML } = h(base).render();
+
+          let __html = innerHTML;
+
+          __html = __html.replace(/^<template [^>]+>/, "");
+
+          if (innerHTML !== __html) {
+            __html = __html.replace(/<\/template>/, "");
+          }
+
           nextProps["data-hydrate"] = "";
+          children = [
+            createElement("template", {
+              shadowroot: "open",
+              dangerouslySetInnerHTML: {
+                __html,
+              },
+            }),
+            children,
+          ];
         }
         return createElement(is || tagName, nextProps, children);
       }
