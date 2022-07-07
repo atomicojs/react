@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "type": "module",
   "description": "",
   "types": "./wrapper.d.ts",
