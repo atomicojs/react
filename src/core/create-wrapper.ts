@@ -102,6 +102,7 @@ export const createWrapper =
             children,
           ];
         }
-        return createElement(is || tagName, nextProps, ...children);
+        nextProps.children = children;
+        return createElement(is || tagName, nextProps);
       }
     ) as Component<Base>;
