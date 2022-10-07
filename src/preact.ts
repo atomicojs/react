@@ -2,7 +2,7 @@ import { createElement, options } from "preact";
 import { useLayoutEffect, useRef } from "preact/hooks";
 import { createAuto } from "./core/create-auto";
 import { createWrapper } from "./core/create-wrapper";
-export { Component } from "./core/create-wrapper";
+export type { Component } from "./core/create-wrapper";
 
 const { vnode } = options;
 
