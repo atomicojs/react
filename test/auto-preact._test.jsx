@@ -1,6 +1,7 @@
-import { expect } from "@esm-bundle/chai";
+//@ts-check
+import { expect, describe, it } from "vitest";
 import { render, h, createRef } from "preact";
-import { PreactComponent, Atomico } from "./demo/wrapper";
+import { PreactComponent, Atomico } from "./demo/auto";
 
 describe("wrapper", () => {
   it("handlers", () =>
@@ -12,6 +13,7 @@ describe("wrapper", () => {
 
       render(
         h(PreactComponent, {
+          count: 100,
           onMyCustomEvent: done,
           ref,
         }),
@@ -22,9 +24,9 @@ describe("wrapper", () => {
 
       await current.updated;
 
-      current.count = 100;
+      expect(current.count).to.equal(100);
 
-      expect(current.localName).to.equal("my-component");
+      current.count = 1;
 
       expect(current).to.instanceOf(Atomico);
     }));

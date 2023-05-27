@@ -8,8 +8,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "vite",
-    "test": "wtr test/**/*.jsx",
+    "start": "vite --force",
+    "test": "vitest",
     "test:w": "wtr test/**/*.test.jsx --watch",
     "exports": "exports \"src/*.ts\" --exports --types --main react",
     "prepublishOnly": "npm run test && npm run exports"
@@ -18,21 +18,26 @@
   "license": "ISC",
   "devDependencies": {
     "@atomico/exports": "^0.26.2",
+    "@atomico/hooks": "^3.49.1",
+    "@atomico/tsconfig": "^1.1.2",
     "@esm-bundle/chai": "^4.3.4",
-    "@types/react": "latest",
-    "@web/dev-server-esbuild": "^0.2.12",
-    "@web/test-runner": "^0.13.5",
-    "atomico": "^1.60.3",
+    "@types/react": "^18.2.7",
+    "@vitest/browser": "^0.31.1",
+    "atomico": "^1.71.0",
+    "happy-dom": "^9.20.3",
     "husky": "^6.0.0",
+    "jsdom": "^22.0.0",
     "preact": "^10.6.6",
-    "react": "npm:@esm-bundle/react",
-    "react-dom": "npm:@esm-bundle/react-dom",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^4.3.2",
-    "vite": "^2.3.4"
+    "vite": "^4.3.9",
+    "vitest": "^0.31.1",
+    "webdriverio": "^8.10.5"
   },
   "peerDependencies": {
     "@types/react": "latest",
-    "atomico": "^1.60.1",
+    "atomico": "^1.71.0",
     "preact": "latest",
     "react": "latest"
   },

@@ -1,12 +1,15 @@
-import { wrapper } from "../../src/react";
+import { Host, c, useProp } from "atomico";
 import { wrapper as wrapperPreact } from "../../src/preact";
-import { Host, c, html, useProp } from "atomico";
+import { wrapper } from "../../src/react";
 
 function atomico(): Host<{ onMyCustomEvent: Event }> {
   const [count, setCount] = useProp("count");
-  return html`<host shadowDom>
-    <button onclick=${() => setCount(count + 1)}>Increment: ${count}</button>
-  </host>`;
+
+  return (
+    <host shadowDom>
+      <button onclick={() => setCount(count + 1)}>Increment: {count}</button>
+    </host>
+  );
 }
 
 atomico.props = {

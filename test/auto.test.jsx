@@ -1,5 +1,5 @@
 //@ts-check
-import { expect } from "@esm-bundle/chai";
+import { expect, describe, it } from "vitest";
 import React from "react";
 import ReactDom from "react-dom";
 import { ReactComponent, Atomico } from "./demo/auto";
