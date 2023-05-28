@@ -20,7 +20,7 @@ export interface Wrapper {
 }
 
 export const createWrapper =
-  ({ createElement, useLayoutEffect, forwardRef, useRef }) =>
+  ({ createElement, useLayoutEffect, forwardRef, useRef, useState }) =>
   <Base extends CustomElementConstructor>(
     tagName: string,
     base: Base,
@@ -31,7 +31,7 @@ export const createWrapper =
         { children, ...props }: JSXElement<Base> & { children?: any },
         parentRef
       ) => {
-        const ctx = useRef();
+        const ctx = useState({});
 
         const reactProps: Record<string, any> = {};
         const domProps = {};

@@ -1,4 +1,10 @@
-import { createElement, useLayoutEffect, forwardRef, useRef } from "react";
+import {
+  createElement,
+  useLayoutEffect,
+  forwardRef,
+  useRef,
+  useState,
+} from "react";
 import { createAuto } from "./core/create-auto";
 import { createWrapper } from "./core/create-wrapper";
 export type { Component } from "./core/create-wrapper";
@@ -8,6 +14,7 @@ export const wrapper = createWrapper({
   useLayoutEffect,
   forwardRef,
   useRef,
+  useState,
 });
 
 export const auto = createAuto(wrapper);

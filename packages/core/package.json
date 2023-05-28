@@ -10,8 +10,8 @@
   "scripts": {
     "start": "vite",
     "test": "vitest",
-    "dev:types": "tsc",
-    "dev:exports": "exports src/**/*",
+    "dev:types": "tsc --watch",
+    "dev:exports": "exports src/**/* --watch",
     "build:types": "tsc",
     "build:compile": "library src/**/*",
     "build:exports": "exports lib/**/* types/**/*",
@@ -27,7 +27,7 @@
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "@vitest/browser": "^0.31.1",
-    "atomico": "^1.71.0",
+    "atomico": "^1.71.1",
     "happy-dom": "^9.20.3",
     "jsdom": "^22.0.0",
     "preact": "^10.6.6",
@@ -72,11 +72,11 @@
     "preact"
   ],
   "exports": {
-    ".": "./lib/index.js",
-    "./preact": "./lib/preact.js",
-    "./proxy": "./lib/proxy.js",
-    "./core/create-auto": "./lib/core/create-auto.js",
-    "./core/create-wrapper": "./lib/core/create-wrapper.js"
+    ".": "./src/index.ts",
+    "./preact": "./src/preact.ts",
+    "./proxy": "./src/proxy.ts",
+    "./core/create-auto": "./src/core/create-auto.ts",
+    "./core/create-wrapper": "./src/core/create-wrapper.ts"
   },
   "typesVersions": {
     "*": {

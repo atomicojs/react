@@ -1,5 +1,5 @@
 import { createElement, options } from "preact";
-import { useLayoutEffect, useRef } from "preact/hooks";
+import { useLayoutEffect, useRef, useState } from "preact/hooks";
 import { createAuto } from "./core/create-auto";
 import { createWrapper } from "./core/create-wrapper";
 export type { Component } from "./core/create-wrapper";
@@ -25,6 +25,7 @@ export const wrapper = createWrapper({
   useLayoutEffect,
   forwardRef,
   useRef,
+  useState,
 });
 
 export const auto = createAuto(wrapper);
