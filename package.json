@@ -2,8 +2,10 @@
   "workspaces": [
     "packages/**"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "run build goPublish"
+  },
   "dependencies": {
-    "@atomico/run": "^0.7.0"
+    "@atomico/run": "^0.7.1"
   }
 }

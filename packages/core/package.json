@@ -16,7 +16,7 @@
     "build:compile": "library src/**/*",
     "build:exports": "exports lib/**/* types/**/*",
     "build": "npm run build:types && npm run build:compile && npm run build:exports",
-    "prepublishOnly": "npm run test && npm run exports"
+    "goPublish": "npm publish"
   },
   "author": "UpperCod",
   "license": "ISC",
