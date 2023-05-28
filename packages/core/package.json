@@ -8,19 +8,20 @@
     "access": "public"
   },
   "scripts": {
-    "start": "vite --force",
+    "start": "vite",
     "test": "vitest",
-    "test:w": "wtr test/**/*.test.jsx --watch",
-    "exports": "exports \"src/*.ts\" --exports --types --main react",
+    "dev:types": "tsc",
+    "dev:exports": "exports src/**/*",
     "prepublishOnly": "npm run test && npm run exports"
   },
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "@atomico/exports": "^0.26.2",
     "@atomico/hooks": "^3.49.1",
     "@atomico/tsconfig": "^1.1.2",
     "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@vitest/browser": "^0.31.1",
     "atomico": "^1.71.0",
     "happy-dom": "^9.20.3",
     "jsdom": "^22.0.0",
@@ -30,7 +31,6 @@
     "typescript": "^4.3.2",
     "vite": "^4.3.9",
     "vitest": "^0.31.1",
-    "@vitest/browser": "^0.31.1",
     "webdriverio": "^8.10.5"
   },
   "peerDependencies": {

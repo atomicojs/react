@@ -1,6 +1,6 @@
 import { Host, c, useProp } from "atomico";
-import { wrapper as wrapperPreact } from "../../src/preact";
-import { wrapper } from "../../src/react";
+import { auto } from "../../src";
+import { auto as autoPreact } from "../../src/preact";
 
 function atomico(): Host<{ onMyCustomEvent: Event }> {
   const [count, setCount] = useProp("count");
@@ -26,6 +26,6 @@ export const Atomico = c(atomico);
 
 customElements.define("my-component", Atomico);
 
-export const ReactComponent = wrapper("my-component", Atomico);
+export const ReactComponent = auto(Atomico);
 
-export const PreactComponent = wrapperPreact("my-component", Atomico);
+export const PreactComponent = autoPreact(Atomico);

@@ -1,5 +1,5 @@
 import { JSXElement, options, h } from "atomico";
-import { DOMAttributes } from "react";
+import { DOMAttributes, useCallback } from "react";
 
 interface Props {
   [prop: string]: any;
@@ -27,57 +27,99 @@ export const createWrapper =
     { extends: is }: ElementDefinitionOptions = {}
   ) =>
     forwardRef(
-      ({ children, ...props }: JSXElement<Base> & { children?: any }, ref) => {
-        let localRef = useRef();
+      (
+        { children, ...props }: JSXElement<Base> & { children?: any },
+        parentRef
+      ) => {
+        const ctx = useRef();
 
-        ref = ref || localRef;
+        const reactProps: Record<string, any> = {};
+        const domProps = {};
+        const handlers = {};
 
-        const [handlers, rawProps, nextProps] = Object.entries(props).reduce<
-          [Entries, Entries, Props]
-        >(
-          ([handlers, rawProps, nextProps], [name, value]) => {
-            if (
-              (name.startsWith("on") && value == null) ||
-              typeof value == "function"
-            ) {
-              let timeStamp: number;
-              const handler = (event: Event) => {
-                if (timeStamp != event.timeStamp) {
-                  timeStamp = event.timeStamp;
-                  value(event);
-                }
-              };
-              handlers.push([name.slice(2), handler]);
-              if (/^on[A-Z]/.test(name)) {
-                nextProps[name] = handler;
+        ctx.reactProps = reactProps;
+        ctx.domProps = domProps;
+        ctx.handlers = handlers;
+
+        // Categorize props for react, dom and events
+        for (let prop in props) {
+          const value = props[prop];
+          if (
+            (prop.startsWith("on") && value == null) ||
+            typeof value == "function"
+          ) {
+            let timeStamp: number;
+            // TODO: si el evento es null genera un error
+            const handler = (event: Event) => {
+              if (timeStamp != event.timeStamp) {
+                timeStamp = event.timeStamp;
+                value(event);
               }
-            } else if (name in base.prototype) {
-              rawProps.push([name, value]);
-            } else {
-              nextProps[name] = value;
+            };
+            handlers[prop.slice(2)] = handler;
+            if (/^on[A-Z]/.test(prop)) {
+              reactProps[prop] = handler;
             }
-            return [handlers, rawProps, nextProps];
+          } else if (prop in base.prototype) {
+            domProps[prop] = value;
+          } else {
+            reactProps[prop] = value;
+          }
+        }
+
+        function sync() {
+          // Remove native events
+          if (ctx.unsync) {
+            ctx.unsync();
+            delete ctx.unsync;
+          }
+
+          // Prevent script continuity if component has been unmounted
+          if (!ctx.current) return;
+
+          const { domProps, handlers, current } = ctx;
+
+          delete ctx.domProps;
+          delete ctx.handlers;
+
+          const unlisteners = [];
+
+          for (let prop in handlers) {
+            const value = handlers[prop];
+            current.addEventListener(prop, value);
+            unlisteners.push(() => current.removeEventListener(prop, value));
+          }
+
+          for (let prop in domProps) {
+            current[prop] = domProps[prop];
+          }
+
+          ctx.unsync = () => {
+            unlisteners.forEach((unlistener) => unlistener());
+          };
+        }
+
+        const ref = useCallback(
+          (node: HTMLElement | null) => {
+            ctx.current = node;
+            sync();
+            switch (parentRef && typeof parentRef) {
+              case "object":
+                return (parentRef.current = node);
+              case "function":
+                return parentRef(node);
+            }
           },
-          [[], [], { ref }]
+          [parentRef]
         );
+
+        reactProps.ref = ref;
 
         useLayoutEffect = options.ssr ? () => {} : useLayoutEffect;
 
-        useLayoutEffect(() => {
-          const { current } = ref;
-          const unlisteners = handlers
-            .filter(([, value]) => value)
-            .map(([name, value]) => {
-              current.addEventListener(name, value);
-              return () => current.removeEventListener(name, value);
-            });
+        useLayoutEffect(sync);
 
-          rawProps.forEach(([name, value]) => (current[name] = value));
-
-          return () => unlisteners.forEach((unlistener) => unlistener());
-        });
-
-        if (is) nextProps.is = tagName;
+        if (is) reactProps.is = tagName;
 
         if (options.ssr) {
           //@ts-ignore
@@ -91,7 +133,7 @@ export const createWrapper =
             __html = __html.replace(/<\/template>/, "");
           }
 
-          nextProps["data-hydrate"] = "";
+          reactProps["data-hydrate"] = "";
           children = [
             createElement("template", {
               shadowroot: "open",
@@ -103,8 +145,9 @@ export const createWrapper =
           ];
         }
         if (children != undefined) {
-          nextProps.children = children;
+          reactProps.children = children;
         }
-        return createElement(is || tagName, nextProps);
+
+        return createElement(is || tagName, reactProps);
       }
     ) as Component<Base>;

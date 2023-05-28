@@ -1,0 +1,6 @@
+{
+    "include": ["*.tsx"],
+    "compilerOptions": {
+        "jsx": "react-jsx"
+    }
+}
