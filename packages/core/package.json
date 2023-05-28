@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "type": "module",
   "description": "",
   "types": "types/index.d.ts",
@@ -16,7 +16,7 @@
     "build:compile": "library src/**/*",
     "build:exports": "exports lib/**/* types/**/*",
     "build": "npm run build:types && npm run build:compile && npm run build:exports",
-    "goPublish": "npm publish"
+    "prepublishOnly": "npm run build"
   },
   "author": "UpperCod",
   "license": "ISC",
