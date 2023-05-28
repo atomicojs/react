@@ -1,3 +1,7 @@
-/**/*
-!/lib
-!/types
+/src
+/test
+/example
+/tsconfig.json
+/vite.config.js
+/index.html
+/node_modules
