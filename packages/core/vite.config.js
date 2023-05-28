@@ -1,4 +1,5 @@
 import { defineConfig } from "vitest/config";
+import atomico from "@atomico/vite";
 
 export default defineConfig({
   test: {
@@ -11,4 +12,5 @@ export default defineConfig({
   optimizeDeps: {
     force: true,
   },
+  plugins: atomico(),
 });
