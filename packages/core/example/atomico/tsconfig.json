@@ -1,0 +1,8 @@
+{
+    "extends": "@atomico/tsconfig/base.json",
+    "include": ["*.tsx"],
+    "compilerOptions": {
+      "outDir":"types"
+    }
+  
+  }

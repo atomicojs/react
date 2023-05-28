@@ -3,7 +3,7 @@
   "version": "2.6.1",
   "type": "module",
   "description": "",
-  "types": "./wrapper.d.ts",
+  "types": "types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -70,5 +70,31 @@
     "webcomponent",
     "react",
     "preact"
-  ]
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./preact": "./lib/preact.js",
+    "./proxy": "./lib/proxy.js",
+    "./core/create-auto": "./lib/core/create-auto.js",
+    "./core/create-wrapper": "./lib/core/create-wrapper.js"
+  },
+  "typesVersions": {
+    "*": {
+      "preact": [
+        "types/preact.d.ts"
+      ],
+      "proxy": [
+        "types/proxy.d.ts"
+      ],
+      "core/create-auto": [
+        "types/core/create-auto.d.ts"
+      ],
+      "core/create-wrapper": [
+        "types/core/create-wrapper.d.ts"
+      ],
+      "index": [
+        "types/example/atomico/index.d.ts"
+      ]
+    }
+  }
 }
