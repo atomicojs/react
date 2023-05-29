@@ -22,7 +22,7 @@
   "devDependencies": {
     "@atomico/hooks": "^3.49.1",
     "@atomico/tsconfig": "^1.1.2",
-    "@atomico/vite": "^2.9.1",
+    "@atomico/vite": "^2.9.2",
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "@vitest/browser": "^0.31.1",
