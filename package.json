@@ -6,6 +6,6 @@
     "build": "run build publish -s"
   },
   "dependencies": {
-    "@atomico/run": "^0.8.2"
+    "@atomico/run": "^0.8.3"
   }
 }
