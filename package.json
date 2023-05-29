@@ -3,9 +3,9 @@
     "packages/**"
   ],
   "scripts": {
-    "build": "run build goPublish"
+    "build": "run build publish -s"
   },
   "dependencies": {
-    "@atomico/run": "^0.7.1"
+    "@atomico/run": "^0.8.0"
   }
 }
