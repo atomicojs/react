@@ -75,7 +75,8 @@
     "./preact": "./lib/preact.js",
     "./proxy": "./lib/proxy.js",
     "./core/create-auto": "./lib/core/create-auto.js",
-    "./core/create-wrapper": "./lib/core/create-wrapper.js"
+    "./core/create-wrapper": "./lib/core/create-wrapper.js",
+    "./react": "./lib/react.js"
   },
   "typesVersions": {
     "*": {
@@ -93,6 +94,9 @@
       ],
       "index": [
         "types/example/atomico/index.d.ts"
+      ],
+      "react": [
+        "types/react.d.ts"
       ]
     }
   }
