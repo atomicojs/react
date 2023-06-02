@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "2.7.5",
+  "version": "2.7.6",
   "type": "module",
   "description": "",
   "types": "types/index.d.ts",
