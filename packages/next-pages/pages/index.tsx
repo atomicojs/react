@@ -5,7 +5,10 @@ export default function () {
       <h1>welcome</h1>
       <ReactComponent
         onclick={() => {
-          console.log("OUT!");
+          console.log("Event dom!", event);
+        }}
+        onClick={(event) => {
+          console.log("Event react!", event);
         }}
       ></ReactComponent>
     </>
