@@ -49,7 +49,7 @@ export const createWrapper =
             typeof value == "function"
           ) {
             let timeStamp: number;
-            // TODO: si el evento es null genera un error
+            // TODO: if the event is null it generates an error
             const handler = (event: Event) => {
               if (timeStamp != event.timeStamp) {
                 timeStamp = event.timeStamp;
@@ -68,6 +68,7 @@ export const createWrapper =
         }
 
         function sync() {
+          if (!ctx.afterEffect) return;
           // Remove native events
           if (ctx.unsync) {
             ctx.unsync();
@@ -78,9 +79,6 @@ export const createWrapper =
           if (!ctx.current) return;
 
           const { domProps, handlers, current } = ctx;
-
-          delete ctx.domProps;
-          delete ctx.handlers;
 
           const unlisteners = [];
 
@@ -117,7 +115,10 @@ export const createWrapper =
 
         useLayoutEffect = options.ssr ? () => {} : useLayoutEffect;
 
-        useLayoutEffect(sync);
+        useLayoutEffect(() => {
+          ctx.afterEffect = true;
+          sync();
+        });
 
         if (is) reactProps.is = tagName;
 

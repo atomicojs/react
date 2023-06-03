@@ -71,12 +71,12 @@
     "preact"
   ],
   "exports": {
-    ".": "./lib/index.js",
-    "./preact": "./lib/preact.js",
-    "./proxy": "./lib/proxy.js",
-    "./core/create-auto": "./lib/core/create-auto.js",
-    "./core/create-wrapper": "./lib/core/create-wrapper.js",
-    "./react": "./lib/react.js"
+    ".": "./src/index.ts",
+    "./preact": "./src/preact.ts",
+    "./proxy": "./src/proxy.ts",
+    "./core/create-auto": "./src/core/create-auto.ts",
+    "./core/create-wrapper": "./src/core/create-wrapper.ts",
+    "./react": "./src/react.ts"
   },
   "typesVersions": {
     "*": {
