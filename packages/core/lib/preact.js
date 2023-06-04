@@ -2,7 +2,7 @@ import { options, createElement } from 'preact';
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { createAuto } from './core/create-auto.js';
 import { createWrapper } from './core/create-wrapper.js';
-import './proxy.js';
+import '@atomico/wrapper';
 import 'atomico';
 import 'react';
 

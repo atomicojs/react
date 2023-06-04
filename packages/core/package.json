@@ -20,7 +20,6 @@
   "author": "UpperCod",
   "license": "ISC",
   "devDependencies": {
-    "@atomico/hooks": "^3.49.1",
     "@atomico/tsconfig": "^1.1.2",
     "@atomico/vite": "^2.9.2",
     "@types/react": "^18.2.7",
@@ -71,12 +70,12 @@
     "preact"
   ],
   "exports": {
-    ".": "./src/index.ts",
-    "./preact": "./src/preact.ts",
-    "./proxy": "./src/proxy.ts",
-    "./core/create-auto": "./src/core/create-auto.ts",
-    "./core/create-wrapper": "./src/core/create-wrapper.ts",
-    "./react": "./src/react.ts"
+    ".": "./lib/index.js",
+    "./preact": "./lib/preact.js",
+    "./proxy": "./lib/proxy.js",
+    "./core/create-auto": "./lib/core/create-auto.js",
+    "./core/create-wrapper": "./lib/core/create-wrapper.js",
+    "./react": "./lib/react.js"
   },
   "typesVersions": {
     "*": {
@@ -99,5 +98,8 @@
         "types/react.d.ts"
       ]
     }
+  },
+  "dependencies": {
+    "@atomico/wrapper": "^1.3.0"
   }
 }

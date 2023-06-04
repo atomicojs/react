@@ -1,4 +1,3 @@
-"use client";
 import { Host, c, useProp, html, css } from "atomico";
 import { auto } from "@atomico/react";
 

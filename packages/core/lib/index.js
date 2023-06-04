@@ -1,7 +1,7 @@
 import { createElement, useLayoutEffect, forwardRef, useRef, useState } from 'react';
 import { createAuto } from './core/create-auto.js';
 import { createWrapper } from './core/create-wrapper.js';
-import './proxy.js';
+import '@atomico/wrapper';
 import 'atomico';
 
 const wrapper = createWrapper({

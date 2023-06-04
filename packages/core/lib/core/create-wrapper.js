@@ -31,6 +31,8 @@ const createWrapper = ({ createElement, useLayoutEffect, forwardRef, useRef, use
       }
     }
     function sync() {
+      if (!ctx.afterEffect)
+        return;
       if (ctx.unsync) {
         ctx.unsync();
         delete ctx.unsync;
@@ -38,8 +40,6 @@ const createWrapper = ({ createElement, useLayoutEffect, forwardRef, useRef, use
       if (!ctx.current)
         return;
       const { domProps: domProps2, handlers: handlers2, current } = ctx;
-      delete ctx.domProps;
-      delete ctx.handlers;
       const unlisteners = [];
       for (let prop in handlers2) {
         const value = handlers2[prop];
@@ -69,7 +69,10 @@ const createWrapper = ({ createElement, useLayoutEffect, forwardRef, useRef, use
     reactProps.ref = ref;
     useLayoutEffect = options.ssr ? () => {
     } : useLayoutEffect;
-    useLayoutEffect(sync);
+    useLayoutEffect(() => {
+      ctx.afterEffect = true;
+      sync();
+    });
     if (is)
       reactProps.is = tagName;
     if (options.ssr) {
