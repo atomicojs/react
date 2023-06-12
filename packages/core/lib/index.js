@@ -1,4 +1,4 @@
-import { createElement, useLayoutEffect, forwardRef, useRef, useState } from 'react';
+import { createElement, useLayoutEffect, forwardRef, useState } from 'react';
 import { createAuto } from './core/create-auto.js';
 import { createWrapper } from './core/create-wrapper.js';
 import '@atomico/wrapper';
@@ -8,7 +8,6 @@ const wrapper = createWrapper({
   createElement,
   useLayoutEffect,
   forwardRef,
-  useRef,
   useState
 });
 const auto = createAuto(wrapper);

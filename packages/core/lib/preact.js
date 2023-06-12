@@ -1,5 +1,5 @@
 import { options, createElement } from 'preact';
-import { useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { useLayoutEffect, useState } from 'preact/hooks';
 import { createAuto } from './core/create-auto.js';
 import { createWrapper } from './core/create-wrapper.js';
 import '@atomico/wrapper';
@@ -20,7 +20,6 @@ const wrapper = createWrapper({
   createElement,
   useLayoutEffect,
   forwardRef,
-  useRef,
   useState
 });
 const auto = createAuto(wrapper);

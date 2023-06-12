@@ -1,9 +1,9 @@
 import { options, h } from 'atomico';
 import { useCallback } from 'react';
 
-const createWrapper = ({ createElement, useLayoutEffect, forwardRef, useRef, useState }) => (tagName, base, { extends: is } = {}) => forwardRef(
+const createWrapper = ({ createElement, useLayoutEffect, forwardRef, useState }) => (tagName, base, { extends: is } = {}) => forwardRef(
   ({ children, ...props }, parentRef) => {
-    const ctx = useState({});
+    const [ctx] = useState({});
     const reactProps = {};
     const domProps = {};
     const handlers = {};
