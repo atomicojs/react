@@ -20,7 +20,7 @@ export interface Wrapper {
 }
 
 export const createWrapper =
-  ({ createElement, useLayoutEffect, forwardRef, useRef, useState }) =>
+  ({ createElement, useLayoutEffect, forwardRef, useState }) =>
   <Base extends CustomElementConstructor>(
     tagName: string,
     base: Base,
@@ -31,7 +31,7 @@ export const createWrapper =
         { children, ...props }: JSXElement<Base> & { children?: any },
         parentRef
       ) => {
-        const ctx = useState({});
+        const [ctx] = useState({});
 
         const reactProps: Record<string, any> = {};
         const domProps = {};
@@ -57,6 +57,7 @@ export const createWrapper =
               }
             };
             handlers[prop.slice(2)] = handler;
+            //  All events to react would always write with Capital letter
             if (/^on[A-Z]/.test(prop)) {
               reactProps[prop] = handler;
             }

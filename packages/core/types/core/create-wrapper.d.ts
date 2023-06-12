@@ -6,10 +6,9 @@ export interface Component<Base extends CustomElementConstructor> {
 export interface Wrapper {
     <Base extends CustomElementConstructor>(tagName: string, base: Base, options?: ElementDefinitionOptions): Component<Base>;
 }
-export declare const createWrapper: ({ createElement, useLayoutEffect, forwardRef, useRef, useState }: {
+export declare const createWrapper: ({ createElement, useLayoutEffect, forwardRef, useState }: {
     createElement: any;
     useLayoutEffect: any;
     forwardRef: any;
-    useRef: any;
     useState: any;
 }) => <Base extends CustomElementConstructor>(tagName: string, base: Base, { extends: is }?: ElementDefinitionOptions) => Component<Base>;
