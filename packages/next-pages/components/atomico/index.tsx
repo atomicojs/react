@@ -1,11 +1,15 @@
-import { Host, c, useProp, html, css } from "atomico";
+import { c, useProp, html, css } from "atomico";
+import type { Host, Props } from "atomico";
 import { auto } from "@atomico/react";
 
-function atomico(): Host<{ onMyCustomEvent: Event }> {
+function atomico({
+  show,
+}: Props<typeof atomico>): Host<{ onMyCustomEvent: Event }> {
   const [count, setCount] = useProp("count");
 
   return html`<host shadowDom>
     <button onclick=${() => setCount(count + 1)}>Increment: ${count}</button>
+    <h1>${show ? "true" : "false"}</h1>
   </host>`;
 }
 
@@ -17,6 +21,7 @@ atomico.props = {
     },
     value: 0,
   },
+  show: Boolean,
 };
 
 atomico.styles = css`
