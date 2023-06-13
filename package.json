@@ -3,7 +3,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "run build publish -s"
+    "build": "npm run buil -w=@tomico/react && npm run build -w=next-app && npm publish -w=@atomico/react"
   },
   "dependencies": {
     "@atomico/run": "^0.10.1"
