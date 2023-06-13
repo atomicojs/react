@@ -1,6 +1,6 @@
 {
   "workspaces": [
-    "packages/**"
+    "packages/*"
   ],
   "scripts": {
     "build": "run build publish -s"
