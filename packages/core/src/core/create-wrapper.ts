@@ -1,5 +1,6 @@
 import { JSXElement, options, h } from "atomico";
 import { DOMAttributes, useCallback } from "react";
+import opts from "../options";
 
 interface Props {
   [prop: string]: any;
@@ -123,7 +124,7 @@ export const createWrapper =
 
         if (is) reactProps.is = tagName;
 
-        if (options.ssr) {
+        if (opts.ssr && options.ssr) {
           //@ts-ignore
           const { innerHTML } = h(base).render();
 

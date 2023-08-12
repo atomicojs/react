@@ -13,7 +13,6 @@
     "dev:types": "tsc --watch",
     "dev:exports": "exports src/**/* --watch",
     "build:types": "tsc",
-    "build:compile": "library src/**/*",
     "build:exports": "exports lib/**/* types/**/*",
     "build": "npm run build:types && npm run build:compile && npm run build:exports"
   },
