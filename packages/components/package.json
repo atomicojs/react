@@ -7,5 +7,41 @@
   },
   "dependencies": {
     "@atomico/react": "*"
+  },
+  "peerDependencies": {
+    "@atomico/react": "*",
+    "@atomico/vue": "*"
+  },
+  "peerDependenciesMeta": {
+    "@atomico/react": {
+      "optional": true
+    },
+    "@atomico/vue": {
+      "optional": true
+    }
+  },
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./checkbox-list": "./dist/checkbox-list.js",
+    ".": "./dist/index.js",
+    "./react": "./wrappers/react.js",
+    "./preact": "./wrappers/preact.js",
+    "./vue": "./wrappers/vue.js"
+  },
+  "typesVersions": {
+    "*": {
+      "checkbox-list": [
+        "dist/checkbox-list.d.ts"
+      ],
+      "react": [
+        "wrappers/react.d.ts"
+      ],
+      "preact": [
+        "wrappers/preact.d.ts"
+      ],
+      "vue": [
+        "wrappers/vue.d.ts"
+      ]
+    }
   }
 }

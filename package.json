@@ -6,6 +6,12 @@
     "build": "npm run build -w=@atomico/react && npm run build -w=next-app && npm publish -w=@atomico/react"
   },
   "dependencies": {
-    "@atomico/run": "^0.10.1"
+    "@atomico/run": "^0.10.1",
+    "vite": "^4.3.9",
+    "atomico": "^1.71.1",
+    "@atomico/exports": "1.11.2",
+    "@atomico/tsconfig": "^1.1.2",
+    "@atomico/vite": "^2.9.2",
+    "typescript": "^4.3.2"
   }
 }
