@@ -1,6 +1,7 @@
 {
   "name": "components",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "build:types": "tsc",
     "build:exports": "exports \"dist/**/*\" --wrappers"

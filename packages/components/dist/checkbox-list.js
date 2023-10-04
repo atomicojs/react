@@ -1,16 +1,24 @@
-import { jsx as _jsx } from "atomico/jsx-runtime";
-import { c } from "atomico";
+import { jsx as _jsx, jsxs as _jsxs } from "atomico/jsx-runtime";
+import { c, useEvent } from "atomico";
 function checkboxList() {
-    return _jsx("host", { shadowDom: true });
+    const dispatch = useEvent("ChangeCheckboxList", {
+        bubbles: true,
+        composed: true,
+    });
+    return (_jsx("host", { shadowDom: true, children: _jsx("slot", { onChangeCheckbox: (event) => {
+                console.info({ event: "onChangeCheckbox" });
+                dispatch(event.detail);
+            } }) }));
 }
-checkboxList.props = {
-    options: {
-        type: Object,
-        value: () => [],
-    },
-};
-function checkbox() {
-    return _jsx("host", { shadowDom: true });
+function checkbox({ value, checked }) {
+    const dispatch = useEvent("ChangeCheckbox", {
+        bubbles: true,
+        composed: true,
+    });
+    return (_jsx("host", { shadowDom: true, children: _jsxs("button", { onclick: () => {
+                console.info({ event: "onclick" });
+                dispatch(value);
+            }, children: ["toggle:", (!!checked).toString()] }) }));
 }
 checkbox.props = {
     value: String,

@@ -1,9 +1,5 @@
 export declare const CheckboxList: import("atomico/types/dom").Atomico<{
-    options: {
-        value: string;
-        label: string;
-        checked: boolean;
-    }[];
+    onChangeCheckboxList: (event: CustomEvent<string>) => any;
 } & {}, {
     new (): HTMLElement;
     prototype: HTMLElement;

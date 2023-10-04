@@ -1,4 +1,4 @@
-import { Counter, Checkbox } from "components/react";
+import { Counter } from "components/react";
 import { useState, useEffect } from "react";
 
 export default function () {
@@ -11,8 +11,7 @@ export default function () {
   return (
     <>
       <h1>welcome</h1>
-      <Counter></Counter>
-      <Checkbox />
+      <Counter count={10} />
       <h1>{show ? "true" : "false"}</h1>
     </>
   );
