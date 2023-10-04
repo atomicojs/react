@@ -3,7 +3,7 @@
   "version": "2.7.9",
   "type": "module",
   "description": "",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -11,10 +11,10 @@
     "start": "vite",
     "test": "vitest",
     "dev:types": "tsc --watch",
-    "dev:exports": "exports src/**/* --watch",
+    "dev:exports": "exports \"src/**/*\" --watch",
     "build:types": "tsc",
-    "build:exports": "exports lib/**/* types/**/*",
-    "build": "npm run build:types && npm run build:compile && npm run build:exports"
+    "build:exports": "exports \"dist/**/*\"",
+    "build": "npm run build:types && npm run build:exports"
   },
   "author": "UpperCod",
   "license": "ISC",
@@ -64,32 +64,64 @@
     "preact"
   ],
   "exports": {
-    ".": "./lib/index.js",
-    "./preact": "./lib/preact.js",
-    "./proxy": "./lib/proxy.js",
-    "./core/create-auto": "./lib/core/create-auto.js",
-    "./core/create-wrapper": "./lib/core/create-wrapper.js",
-    "./react": "./lib/react.js"
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./preact": {
+      "default": "./dist/preact.js",
+      "types": "./dist/preact.d.ts"
+    },
+    "./proxy": {
+      "default": "./dist/proxy.js",
+      "types": "./dist/proxy.d.ts"
+    },
+    "./core/create-auto": {
+      "default": "./dist/core/create-auto.js",
+      "types": "./dist/core/create-auto.d.ts"
+    },
+    "./core/create-wrapper": {
+      "default": "./dist/core/create-wrapper.js",
+      "types": "./dist/core/create-wrapper.d.ts"
+    },
+    "./react": {
+      "default": "./dist/react.js",
+      "types": "./dist/react.d.ts"
+    },
+    "./disable-ssr": {
+      "default": "./dist/disable-ssr.js",
+      "types": "./dist/disable-ssr.d.ts"
+    },
+    "./options": {
+      "default": "./dist/options.js",
+      "types": "./dist/options.d.ts"
+    }
   },
   "typesVersions": {
     "*": {
       "preact": [
-        "types/preact.d.ts"
+        "dist/preact.d.ts"
       ],
       "proxy": [
-        "types/proxy.d.ts"
+        "dist/proxy.d.ts"
       ],
       "core/create-auto": [
-        "types/core/create-auto.d.ts"
+        "dist/core/create-auto.d.ts"
       ],
       "core/create-wrapper": [
-        "types/core/create-wrapper.d.ts"
+        "dist/core/create-wrapper.d.ts"
       ],
       "index": [
         "types/example/atomico/index.d.ts"
       ],
       "react": [
-        "types/react.d.ts"
+        "dist/react.d.ts"
+      ],
+      "disable-ssr": [
+        "dist/disable-ssr.d.ts"
+      ],
+      "options": [
+        "dist/options.d.ts"
       ]
     }
   },

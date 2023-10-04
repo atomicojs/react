@@ -1,4 +1,4 @@
-import { Counter } from "components/react";
+import { Counter, Checkbox } from "components/react";
 import { useState, useEffect } from "react";
 
 export default function () {
@@ -11,15 +11,8 @@ export default function () {
   return (
     <>
       <h1>welcome</h1>
-      <Counter
-        show={show}
-        onclick={() => {
-          console.log("Event dom!", event);
-        }}
-        onClick={(event) => {
-          console.log("Event react!", event);
-        }}
-      ></Counter>
+      <Counter></Counter>
+      <Checkbox />
       <h1>{show ? "true" : "false"}</h1>
     </>
   );

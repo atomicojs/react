@@ -1,12 +1,6 @@
-import { JSXElement, options, h } from "atomico";
+import { JSXElement, h, options } from "atomico";
 import { DOMAttributes, useCallback } from "react";
 import opts from "../options";
-
-interface Props {
-  [prop: string]: any;
-}
-
-type Entries = [string, any][];
 
 export interface Component<Base extends CustomElementConstructor> {
   (props: Partial<JSXElement<Base> & DOMAttributes<JSXElement<Base>>>): any;
