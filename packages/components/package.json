@@ -41,6 +41,10 @@
     "./vue": {
       "default": "./wrapper/vue.js",
       "types": "./wrapper/vue.d.ts"
+    },
+    "./counter": {
+      "default": "./dist/counter.js",
+      "types": "./dist/counter.d.ts"
     }
   },
   "typesVersions": {
@@ -56,6 +60,9 @@
       ],
       "vue": [
         "wrapper/vue.d.ts"
+      ],
+      "counter": [
+        "dist/counter.d.ts"
       ]
     }
   }

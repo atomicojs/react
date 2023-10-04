@@ -1,5 +1,6 @@
-import { ReactComponent } from "../components/atomico";
+import { Counter } from "components/react";
 import { useState, useEffect } from "react";
+
 export default function () {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function () {
   return (
     <>
       <h1>welcome</h1>
-      <ReactComponent
+      <Counter
         show={show}
         onclick={() => {
           console.log("Event dom!", event);
@@ -18,7 +19,7 @@ export default function () {
         onClick={(event) => {
           console.log("Event react!", event);
         }}
-      ></ReactComponent>
+      ></Counter>
       <h1>{show ? "true" : "false"}</h1>
     </>
   );
