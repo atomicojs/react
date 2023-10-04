@@ -22,11 +22,26 @@
   },
   "types": "dist/index.d.ts",
   "exports": {
-    "./checkbox-list": "./dist/checkbox-list.js",
-    ".": "./dist/index.js",
-    "./react": "./wrappers/react.js",
-    "./preact": "./wrappers/preact.js",
-    "./vue": "./wrappers/vue.js"
+    "./checkbox-list": {
+      "default": "./dist/checkbox-list.js",
+      "types": "./dist/checkbox-list.d.ts"
+    },
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "default": "./wrapper/react.js",
+      "types": "./wrapper/react.d.ts"
+    },
+    "./preact": {
+      "default": "./wrapper/preact.js",
+      "types": "./wrapper/preact.d.ts"
+    },
+    "./vue": {
+      "default": "./wrapper/vue.js",
+      "types": "./wrapper/vue.d.ts"
+    }
   },
   "typesVersions": {
     "*": {
@@ -34,13 +49,13 @@
         "dist/checkbox-list.d.ts"
       ],
       "react": [
-        "wrappers/react.d.ts"
+        "wrapper/react.d.ts"
       ],
       "preact": [
-        "wrappers/preact.d.ts"
+        "wrapper/preact.d.ts"
       ],
       "vue": [
-        "wrappers/vue.d.ts"
+        "wrapper/vue.d.ts"
       ]
     }
   }
