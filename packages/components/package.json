@@ -1,0 +1,11 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "scripts": {
+    "build:types": "tsc",
+    "build:exports": "exports \"dist/**/*\" --wrappers"
+  },
+  "dependencies": {
+    "@atomico/react": "*"
+  }
+}

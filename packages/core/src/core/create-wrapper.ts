@@ -124,7 +124,9 @@ export const createWrapper =
 
         if (is) reactProps.is = tagName;
 
-        if (opts.ssr && options.ssr) {
+        const isSSR = opts.ssr && options.ssr;
+
+        if (isSSR) {
           //@ts-ignore
           const { innerHTML } = h(base).render();
 
@@ -136,7 +138,6 @@ export const createWrapper =
             __html = __html.replace(/<\/template>/, "");
           }
 
-          reactProps["data-hydrate"] = "";
           children = [
             createElement("template", {
               shadowroot: "open",
@@ -150,6 +151,8 @@ export const createWrapper =
         if (children != undefined) {
           reactProps.children = children;
         }
+
+        reactProps["data-hydrate"] = isSSR ? "" : null;
 
         return createElement(is || tagName, reactProps);
       }
