@@ -3,6 +3,7 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "outDir": "lib",
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "types": ["vite/client"]
   }
 }

@@ -1,58 +1,18 @@
 {
   "name": "@atomico/react",
-  "version": "2.7.9",
+  "version": "3.0.0",
   "type": "module",
   "description": "",
-  "types": "types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "start": "vite",
-    "test": "vitest",
-    "dev:types": "tsc --watch",
-    "dev:exports": "exports src/**/* --watch",
-    "build:types": "tsc",
-    "build:compile": "library src/**/*",
-    "build:exports": "exports lib/**/* types/**/*",
-    "build": "npm run build:types && npm run build:compile && npm run build:exports"
+    "build:compile": "tsc",
+    "build:pkg": "exports \"./lib/**/*\"",
+    "build": "npm run build:compile && npm run build:pkg"
   },
   "author": "UpperCod",
   "license": "ISC",
-  "devDependencies": {
-    "@atomico/tsconfig": "^1.1.2",
-    "@atomico/vite": "^2.9.2",
-    "@types/react": "^18.2.7",
-    "@types/react-dom": "^18.2.4",
-    "@vitest/browser": "^0.31.1",
-    "atomico": "^1.71.1",
-    "happy-dom": "^9.20.3",
-    "jsdom": "^22.0.0",
-    "preact": "^10.6.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.3.2",
-    "vite": "^4.3.9",
-    "vitest": "^0.31.1",
-    "webdriverio": "^8.10.5"
-  },
-  "peerDependencies": {
-    "@types/react": "latest",
-    "atomico": "^1.71.0",
-    "preact": "latest",
-    "react": "latest"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "preact": {
-      "optional": true
-    },
-    "@types/react": {
-      "optional": true
-    }
-  },
   "bugs": {
     "url": "https://github.com/atomicojs/react/issues"
   },
@@ -69,37 +29,41 @@
     "react",
     "preact"
   ],
+  "devDependencies": {
+    "@atomico/exports": "1.13.2",
+    "@atomico/tsconfig": "latest",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@atomico/wrapper": "^1.3.0",
+    "atomico": "beta",
+    "react": "latest",
+    "@types/react": "latest"
+  },
+  "types": "./lib/index.d.ts",
   "exports": {
-    ".": "./lib/index.js",
-    "./preact": "./lib/preact.js",
-    "./proxy": "./lib/proxy.js",
-    "./core/create-auto": "./lib/core/create-auto.js",
-    "./core/create-wrapper": "./lib/core/create-wrapper.js",
-    "./react": "./lib/react.js"
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./types": {
+      "types": "./lib/types.d.ts",
+      "default": "./lib/types.js"
+    },
+    "./wrapper": {
+      "types": "./lib/wrapper.d.ts",
+      "default": "./lib/wrapper.js"
+    }
   },
   "typesVersions": {
     "*": {
-      "preact": [
-        "types/preact.d.ts"
+      "types": [
+        "./lib/types.d.ts"
       ],
-      "proxy": [
-        "types/proxy.d.ts"
-      ],
-      "core/create-auto": [
-        "types/core/create-auto.d.ts"
-      ],
-      "core/create-wrapper": [
-        "types/core/create-wrapper.d.ts"
-      ],
-      "index": [
-        "types/example/atomico/index.d.ts"
-      ],
-      "react": [
-        "types/react.d.ts"
+      "wrapper": [
+        "./lib/wrapper.d.ts"
       ]
     }
-  },
-  "dependencies": {
-    "@atomico/wrapper": "^1.3.0"
   }
 }
+

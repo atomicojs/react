@@ -1,0 +1,43 @@
+{
+  "name": "component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:compile": "tsc",
+    "build:pkg": "exports \"./lib/**/*\"",
+    "build": "npm run build:compile && npm run build:pkg",
+    "dev:compile": "tsc --watch",
+    "dev:pkg": "exports \"./lib/**/*\" --watch",
+    "dev": "run -p dev:compile dev:pkg"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "atomico": "*"
+  },
+  "devDependencies": {
+    "@atomico/run": "^0.14.2",
+    "@atomico/tsconfig": "latest"
+  },
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./react": {
+      "types": "./lib/react.d.ts",
+      "default": "./lib/react.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./lib/react.d.ts"
+      ]
+    }
+  }
+}
