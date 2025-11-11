@@ -5,7 +5,7 @@ import {
   KeyofPropsWithEvents,
   SchemaComponentConfig,
 } from "atomico/types/schema";
-import { HTMLAttributes, CSSProperties, Ref, Key } from "react";
+import { HTMLAttributes, CSSProperties, Ref, Key, ReactElement } from "react";
 
 export type AtomicoELement = Atomico<SchemaComponentConfig>;
 
@@ -21,7 +21,7 @@ export type CreateCurrentTarget<Events, Element extends Atomico<any>> = {
     : never;
 };
 
-export type CreateWrapper<Element extends AtomicoELement> =
+export type Props<Element extends AtomicoELement> =
   HTMLAttributes<HTMLElement> & {
     style?: CSSProperties & { [key: `--${string}`]: string };
     ref?: Ref<HTMLElement>;
@@ -35,3 +35,7 @@ export type CreateWrapper<Element extends AtomicoELement> =
         > &
           CreateCurrentTarget<InferEvents<Config["props"]>, Element>
       : {});
+
+export type Component<Element extends AtomicoELement> = (
+  props: Props<Element>
+) => ReactElement;

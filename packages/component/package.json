@@ -5,22 +5,24 @@
   "main": "index.js",
   "scripts": {
     "build:compile": "tsc",
-    "build:pkg": "exports \"./lib/**/*\"",
+    "build:pkg": "exports \"./lib/**/*\" --wrappers",
     "build": "npm run build:compile && npm run build:pkg",
     "dev:compile": "tsc --watch",
-    "dev:pkg": "exports \"./lib/**/*\" --watch",
+    "dev:pkg": "exports \"./lib/**/*\" --watch --wrappers",
     "dev": "run -p dev:compile dev:pkg"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "atomico": "*"
   },
   "devDependencies": {
+    "@atomico/exports": "^2.0.1-beta",
     "@atomico/run": "^0.14.2",
-    "@atomico/tsconfig": "latest"
+    "@atomico/tsconfig": "latest",
+    "typescript": "^5.9.3"
   },
   "types": "./lib/index.d.ts",
   "exports": {
@@ -29,15 +31,34 @@
       "default": "./lib/index.js"
     },
     "./react": {
-      "types": "./lib/react.d.ts",
-      "default": "./lib/react.js"
+      "types": "./wrapper/react.d.ts",
+      "default": "./wrapper/react.js"
+    },
+    "./react/next": {
+      "types": "./wrapper/react/next.d.ts",
+      "default": "./wrapper/react/next.js"
     }
   },
   "typesVersions": {
     "*": {
       "react": [
-        "./lib/react.d.ts"
+        "wrapper/react.d.ts"
+      ],
+      "react/next": [
+        "wrapper/react/next.d.ts"
       ]
+    }
+  },
+  "peerDependencies": {
+    "undefined": "*",
+    "@atomico/react": "*"
+  },
+  "peerDependenciesMeta": {
+    "undefined": {
+      "optional": true
+    },
+    "@atomico/react": {
+      "optional": true
     }
   }
 }

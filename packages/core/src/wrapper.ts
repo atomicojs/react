@@ -1,5 +1,5 @@
 import { createElement, memo } from "react";
-import { CreateWrapper, AtomicoELement } from "./types";
+import { Component, AtomicoELement } from "./types";
 
 const MemoizedWrapper = memo(({ tagName, ...props }: Record<string, any>) => {
   return createElement(tagName, props);
@@ -22,11 +22,11 @@ const getName = (El: CustomElementConstructor) => {
   return localName;
 };
 
-export const createWrapper =
+export const auto =
   <El extends AtomicoELement>(
     Element: El,
     tagName = getName(Element)
-  ): ((props: CreateWrapper<El>) => any) =>
+  ): Component<El> =>
   (props) =>
     createElement(MemoizedWrapper, {
       ...props,

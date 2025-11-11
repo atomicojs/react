@@ -1,1 +1,1 @@
-export { createWrapper } from "./wrapper.js";
+export { auto } from "./wrapper.js";

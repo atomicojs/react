@@ -14,7 +14,7 @@ const getName = (El) => {
     CACHE_GET_NAME.set(El, localName);
     return localName;
 };
-export const createWrapper = (Element, tagName = getName(Element)) => (props) => createElement(MemoizedWrapper, {
+export const auto = (Element, tagName = getName(Element)) => (props) => createElement(MemoizedWrapper, {
     ...props,
     tagName,
 });
