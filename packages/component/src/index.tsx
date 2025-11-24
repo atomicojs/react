@@ -11,7 +11,7 @@ export const MyComponent = c(
             increment();
           }}
         >
-          Increment ({count})
+          Increment ({count}) - update........!
         </button>
         <slot />
         <p>{message}</p>

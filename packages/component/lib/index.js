@@ -5,7 +5,7 @@ export const MyComponent = c(({ increment, message }) => {
     return (_jsxs("host", { shadowDom: true, children: [_jsxs("button", { onclick: () => {
                     setCount(count + 1);
                     increment();
-                }, children: ["Increment (", count, ")"] }), _jsx("slot", {}), _jsx("p", { children: message })] }));
+                }, children: ["Increment (", count, ") - update........!"] }), _jsx("slot", {}), _jsx("p", { children: message })] }));
 }, {
     props: {
         message: String,

@@ -13,6 +13,9 @@ export function MyComponentReact() {
       <h1>welcome eeeeee romass</h1>
       <h1>welcome eeeeee romassssssss</h1>
       <MyComponent onClick={({ currentTarget }) => {}} />
+      <MyComponent onClick={({ currentTarget }) => {}} />
+      <h1>welcome eeeeee romassssssss</h1>
+      <MyComponent onClick={({ currentTarget }) => {}} />
     </>
   );
 }
