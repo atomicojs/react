@@ -30,12 +30,12 @@
     "preact"
   ],
   "devDependencies": {
-    "@atomico/exports": "2.0.1-beta",
+    "@atomico/exports": "^2.0.0",
     "@atomico/tsconfig": "latest",
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@atomico/wrapper": "^1.3.0",
+    "@atomico/wrapper": "^2.0.1",
     "@types/react": "latest",
     "atomico": "^2.1.0-beta",
     "react": "latest"
@@ -53,16 +53,6 @@
     "./wrapper": {
       "types": "./lib/wrapper.d.ts",
       "default": "./lib/wrapper.js"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "types": [
-        "./lib/types.d.ts"
-      ],
-      "wrapper": [
-        "./lib/wrapper.d.ts"
-      ]
     }
   }
 }

@@ -1,5 +1,4 @@
 import { c, event, useProp } from "atomico";
-
 export const MyComponent = c(
   ({ increment, message }) => {
     const [count = 0, setCount] = useProp<number>("count");

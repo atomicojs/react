@@ -16,10 +16,12 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@atomico/react": "*",
+    "@atomico/wrapper": "^2.0.1",
     "atomico": "*"
   },
   "devDependencies": {
-    "@atomico/exports": "^2.0.1-beta",
+    "@atomico/exports": "^2.0.0",
     "@atomico/run": "^0.14.2",
     "@atomico/tsconfig": "latest",
     "typescript": "^5.9.3"
@@ -39,24 +41,10 @@
       "default": "./wrapper/react/next.js"
     }
   },
-  "typesVersions": {
-    "*": {
-      "react": [
-        "wrapper/react.d.ts"
-      ],
-      "react/next": [
-        "wrapper/react/next.d.ts"
-      ]
-    }
-  },
   "peerDependencies": {
-    "undefined": "*",
     "@atomico/react": "*"
   },
   "peerDependenciesMeta": {
-    "undefined": {
-      "optional": true
-    },
     "@atomico/react": {
       "optional": true
     }
