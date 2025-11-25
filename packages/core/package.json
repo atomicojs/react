@@ -1,6 +1,6 @@
 {
   "name": "@atomico/react",
-  "version": "3.0.0-beta",
+  "version": "3.1.0-beta",
   "type": "module",
   "description": "",
   "publishConfig": {
@@ -9,7 +9,8 @@
   "scripts": {
     "build:compile": "tsc",
     "build:pkg": "exports \"./lib/**/*\"",
-    "build": "npm run build:compile && npm run build:pkg"
+    "build": "npm run build:compile && npm run build:pkg",
+    "prepublishOnly": "npm run build"
   },
   "author": "UpperCod",
   "license": "ISC",
@@ -37,7 +38,7 @@
   "dependencies": {
     "@atomico/wrapper": "^2.0.1",
     "@types/react": "latest",
-    "atomico": "^2.1.0-beta",
+    "atomico": "^2.0.0||^2.1.0-beta",
     "react": "latest"
   },
   "types": "./lib/index.d.ts",
